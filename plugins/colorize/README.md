@@ -12,16 +12,23 @@ To use it, add colorize to the plugins array of your zshrc file:
 ```
 plugins=(... colorize)
 ```
+## Configuration
 
-### Requirements
+### Colorize tool
 
-This plugin requires that Pygments be installed: [pygments.org](https://pygments.org/)
+Colorize supports using either the `pygmentize` tool or the `chroma` tool.  By default colorize uses `pygmentize` unless it's not installed & `chroma` is installed.  However, you can override this with the `ZSH_COLORIZE_TOOL` environment variable:
 
-## Styles
+```
+ZSH_COLORIZE_TOOL=chroma
+```
+
+### Styles
 
 Pygments offers multiple styles. By default, the `default` style is used, but you can choose another theme by setting the `ZSH_COLORIZE_STYLE` environment variable:
 
-`ZSH_COLORIZE_STYLE="colorful"`
+```
+ZSH_COLORIZE_STYLE="colorful"
+```
 
 ## Usage
 
@@ -35,3 +42,9 @@ Note that `cless` will behave as less when provided more than one file: you have
 the commands `:n` for next and `:p` for previous. The downside is that less options are not supported.
 But you can circumvent this by either using the LESS environment variable, or by running `ccat file1 file2|less --opts`.
 In the latter form, the file contents will be concatenated and presented by less as a single file.
+
+## Requirements
+
+You have to either install Pygments: [pygments.org](http://pygments.org/download/)
+
+Or install chroma: [https://github.com/alecthomas/chroma](https://github.com/alecthomas/chroma)
